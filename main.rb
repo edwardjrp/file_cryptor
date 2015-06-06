@@ -10,8 +10,8 @@ class EncodeXml
 
   def initialize
     #@IV = SecureRandom.hex(5) #Resulting hex is twise the length of hex param
-    @KEY = Base64.decode64("MEy1AZoX3FU7Wx7xfxPIyA==")
-    @IV = Base64.decode64("NXpbWC0QrouYdJ5Epe3opQ==")
+    @KEY = Base64.decode64("CHANGEME FOR SOMETHING MORE SECURE")
+    @IV = Base64.decode64("CHANGE ME FOR SOMETHING MORE SECURE")
 
     #Development
     #@apispath = "/data/arinc/inbound/"
@@ -44,11 +44,10 @@ class EncodeXml
     mon = today_a[1]
     day = today_a[2]
     files = "in-#{mon}#{day}#{year}*.rcv"
-    return files
   end
 
   def encode_file(file)
-    return self.encryptData(file)
+    self.encryptData(file)
   end
 
   def encryptData(file)
@@ -69,8 +68,6 @@ class EncodeXml
     secured << aes.update(buffer)
     secured << aes.final
     buffer = Base64.encode64(secured)
-
-    return buffer
   end
 
   def decryptData(file)
@@ -91,13 +88,11 @@ class EncodeXml
     unsecured = aes.update(secure)
     unsecured << aes.final
     buffer = Base64.decode64(unsecured)
-
-    return buffer
   end
 
 
   def decode_file(file)
-    return self.decryptData(file)
+    self.decryptData(file)
   end
 
   def batch_inbound
