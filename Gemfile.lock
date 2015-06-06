@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemons (1.1.9)
+    fileutil (0.0.85)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  daemons (~> 1.1.9)
+  fileutil (~> 0.0.85)
